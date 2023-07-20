@@ -1,0 +1,5 @@
+::: qoptcraft.basis.hilbert_dimension
+	handler: python
+	options:
+		show_root_heading: true
+		show_source: true
