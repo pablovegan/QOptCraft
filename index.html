@@ -397,14 +397,28 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#approximating-a-unitary-with-linear-optics-topogonov" class="md-nav__link">
-    Approximating a unitary with linear optics (Topogonov)
+  <a href="#approximating-a-unitary-with-linear-optics-toponogov" class="md-nav__link">
+    Approximating a unitary with linear optics (Toponogov)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-11" class="md-nav__link">
+    Version 1.1
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authors" class="md-nav__link">
+    Authors
+  </a>
   
 </li>
       
@@ -1427,14 +1441,28 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#approximating-a-unitary-with-linear-optics-topogonov" class="md-nav__link">
-    Approximating a unitary with linear optics (Topogonov)
+  <a href="#approximating-a-unitary-with-linear-optics-toponogov" class="md-nav__link">
+    Approximating a unitary with linear optics (Toponogov)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-11" class="md-nav__link">
+    Version 1.1
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authors" class="md-nav__link">
+    Authors
+  </a>
   
 </li>
       
@@ -1486,7 +1514,8 @@
 
 <h1 id="qoptcraft">QOptCraft</h1>
 <p><a href="https://pablovegan.github.io/QOptCraft/"><img alt="documentation" src="https://img.shields.io/badge/docs-mkdocs%20material-blue.svg?style=flat" /></a>
-<a href="https://www.apache.org/licenses/LICENSE-2.0"><img alt="License: Apache 2.0" src="https://img.shields.io/github/license/saltstack/salt" /></a>
+<a href="https://doi.org/10.5281/zenodo.8167527"><img alt="DOI" src="https://zenodo.org/badge/DOI/10.5281/zenodo.8167528.svg" /></a>
+<a href="https://www.gnu.org/licenses/gpl-3.0"><img alt="License: GPL v3" src="https://img.shields.io/badge/License-GPLv3-blue.svg" /></a>
 <a href="https://github.com/charliermarsh/ruff"><img alt="Ruff" src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v1.json" /></a>
 <a href="https://github.com/psf/black"><img alt="black" src="https://img.shields.io/badge/code%20style-black-black" /></a></p>
 <p>A Python package for the design and study of linear optical quantum systems.</p>
@@ -1494,14 +1523,11 @@
 <p>Documentation and examples can be found <a href="https://pablovegan.github.io/QOptCraft/">here</a>.</p>
 <h2 id="installation">Installation</h2>
 <p>Create and activate a new conda environment
-<div class="highlight"><pre><span></span><code><span class="go">conda create --name test python==3.11</span>
+<div class="highlight"><pre><span></span><code><span class="go">conda create --name quantum python==3.11</span>
 <span class="go">conda activate test</span>
-</code></pre></div>
-Clone the repository
-<div class="highlight"><pre><span></span><code><span class="go">git clone -b optimized https://github.tel.uva.es/juagar/qoptcraft.git</span>
 </code></pre></div></p>
 <p>Install with <code>pip</code>:
-<div class="highlight"><pre><span></span><code><span class="go">pip install git+https://github.tel.uva.es/juagar/qoptcraft.git@optimized</span>
+<div class="highlight"><pre><span></span><code><span class="go">pip install qoptcraft</span>
 </code></pre></div></p>
 <h2 id="quick-usage">Quick usage</h2>
 <h3 id="clemens-and-reck-decompositions">Clemens and Reck decompositions</h3>
@@ -1586,17 +1612,22 @@ To check if transitions between quantum states are forbidden by a linear optical
 <span class="n">S_rebuilt</span> <span class="o">=</span> <span class="n">scattering_from_unitary</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">modes</span><span class="p">,</span> <span class="n">photons</span><span class="p">)</span>
 </code></pre></div>
 If this scattering matrix doesn't exist, it will raise an <code>InconsistentEquations</code> error.</p>
-<h3 id="approximating-a-unitary-with-linear-optics-topogonov">Approximating a unitary with linear optics (Topogonov)</h3>
+<h3 id="approximating-a-unitary-with-linear-optics-toponogov">Approximating a unitary with linear optics (Toponogov)</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">qoptcraft.operators</span> <span class="kn">import</span> <span class="n">qft</span>
-<span class="kn">from</span> <span class="nn">qoptcraft.topogonov</span> <span class="kn">import</span> <span class="n">topogonov</span>
+<span class="kn">from</span> <span class="nn">qoptcraft.toponogov</span> <span class="kn">import</span> <span class="n">toponogov</span>
 
 <span class="n">modes</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">photons</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">unitary</span> <span class="o">=</span> <span class="n">qft</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-<span class="n">approx_unitary</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">topogonov</span><span class="p">(</span><span class="n">unitary</span><span class="p">,</span> <span class="n">modes</span><span class="p">,</span> <span class="n">photons</span><span class="p">)</span>
+<span class="n">approx_unitary</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">toponogov</span><span class="p">(</span><span class="n">unitary</span><span class="p">,</span> <span class="n">modes</span><span class="p">,</span> <span class="n">photons</span><span class="p">)</span>
 </code></pre></div>
+<h3 id="version-11">Version 1.1</h3>
+<p>Functions from the version 1.1 of QOptCraft can be accessed from the submodule <code>_legacy</code>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">qoptcraft._legacy</span> <span class="kn">import</span> <span class="o">*</span>
+</code></pre></div></p>
+<h2 id="authors">Authors</h2>
+<p>Versions 1.0 and 1.1 were developed by Daniel Gómez Aguado (<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#103;&#111;&#109;&#101;&#122;&#97;&#103;&#117;&#97;&#100;&#111;&#57;&#57;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#103;&#111;&#109;&#101;&#122;&#97;&#103;&#117;&#97;&#100;&#111;&#57;&#57;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a>), 2021. Update to version 2.0 has been developed by Pablo V. Parellada (<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#112;&#97;&#98;&#108;&#111;&#46;&#118;&#101;&#103;&#97;&#110;&#122;&#111;&#110;&#101;&#115;&#64;&#117;&#118;&#97;&#46;&#101;&#115;">&#112;&#97;&#98;&#108;&#111;&#46;&#118;&#101;&#103;&#97;&#110;&#122;&#111;&#110;&#101;&#115;&#64;&#117;&#118;&#97;&#46;&#101;&#115;</a>), 2023.</p>
 <h2 id="citing">Citing</h2>
-<p>QOptCraft is the work of Daniel Gómez Aguado (<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#103;&#111;&#109;&#101;&#122;&#97;&#103;&#117;&#97;&#100;&#111;&#57;&#57;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#103;&#111;&#109;&#101;&#122;&#97;&#103;&#117;&#97;&#100;&#111;&#57;&#57;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a>) and Pablo V. Parellada (<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#112;&#97;&#98;&#108;&#111;&#46;&#118;&#101;&#103;&#97;&#110;&#122;&#111;&#110;&#101;&#115;&#64;&#117;&#118;&#97;&#46;&#101;&#115;">&#112;&#97;&#98;&#108;&#111;&#46;&#118;&#101;&#103;&#97;&#110;&#122;&#111;&#110;&#101;&#115;&#64;&#117;&#118;&#97;&#46;&#101;&#115;</a>). </p>
 <p>If you are doing research using qoptcraft, please cite our paper:</p>
 <div class="highlight"><pre><span></span><code>Daniel Gómez Aguado et al. qoptcraft: A Python package for the design and study of linear optical quantum systems. 2023. https://doi.org/10.1016/j.cpc.2022.108511
 </code></pre></div>
